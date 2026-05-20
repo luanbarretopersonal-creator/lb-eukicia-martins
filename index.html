@@ -1,1 +1,1071 @@
-<h1>Em breve</h1>
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Portal — Eukícia Martins · Consultoria LB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C9A84C;--gold-light:#e2c06e;--gold-dim:rgba(201,168,76,0.15);
+  --black:#0D0D0D;--dark2:#171717;--dark3:#1e1e1e;
+  --white:#f5f0e8;--white-dim:rgba(245,240,232,0.6);--border:rgba(201,168,76,0.25);
+  --green:#7dd87d;--green-dim:rgba(80,200,80,0.15);--green-border:rgba(80,200,80,0.3);
+  --blue:#8ab4f8;--blue-dim:rgba(100,140,255,0.15);--blue-border:rgba(100,140,255,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--black);color:var(--white);font-family:'Montserrat',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.97);border-bottom:1px solid var(--border);backdrop-filter:blur(12px);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.nav-brand{display:flex;align-items:center;gap:10px;padding:10px 0;flex-shrink:0;}
+.nav-logo{width:42px;height:42px;border:1.5px solid var(--gold);border-radius:4px;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
+.nav-title{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:var(--white);letter-spacing:1px;line-height:1.2;}
+.nav-title span{color:var(--gold);display:block;font-size:9px;font-family:'Montserrat',sans-serif;font-weight:400;letter-spacing:2px;text-transform:uppercase;}
+.nav-tabs{display:flex;gap:3px;overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;padding:8px 0 8px;scrollbar-width:none;}
+.nav-tabs::-webkit-scrollbar{display:none;}
+.tab-btn{background:none;border:1px solid transparent;color:var(--white-dim);font-family:'Montserrat',sans-serif;font-size:9px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:11px 11px;min-height:40px;cursor:pointer;border-radius:2px;transition:all 0.3s;white-space:nowrap;-webkit-tap-highlight-color:transparent;}
+.tab-btn:hover{color:var(--gold);border-color:var(--border);}
+.tab-btn.active{color:var(--gold);border-color:var(--gold);background:var(--gold-dim);}
+.theme-toggle{background:none;border:1px solid var(--border);color:var(--white-dim);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.3s;flex-shrink:0;-webkit-tap-highlight-color:transparent;}
+
+/* LIGHT MODE */
+body.light-mode{--black:#f5f0e8;--dark2:#ede8df;--dark3:#e5e0d7;--white:#1a1a1a;--white-dim:rgba(26,26,26,0.65);--border:rgba(201,168,76,0.35);}
+body.light-mode nav{background:rgba(245,240,232,0.97);}
+body.light-mode .meal-table th,body.light-mode .exercise-table th{background:rgba(201,168,76,0.12);}
+
+/* MAIN */
+.main{max-width:1100px;margin:0 auto;padding:88px 16px 60px;}
+.section{display:none;animation:fadeUp 0.5s ease;}
+.section.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* WATERMARK */
+.watermark{position:fixed;bottom:18px;right:18px;opacity:0.06;font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;pointer-events:none;z-index:50;transform:rotate(-30deg);white-space:nowrap;}
+
+/* SECTION HEADER */
+.section-header{margin:48px 0 26px;display:flex;align-items:center;gap:14px;}
+.section-header h2{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,36px);font-weight:400;letter-spacing:1px;}
+.section-header h2 span{color:var(--gold);}
+.section-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+
+/* HERO */
+.client-hero{text-align:center;padding:50px 20px 40px;position:relative;overflow:hidden;border-radius:4px;margin-bottom:28px;}
+.hero-bg-img{position:absolute;inset:0;background-size:cover;background-position:center top;filter:brightness(0.2);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,13,0.2) 0%,rgba(13,13,13,0.88) 100%);}
+.hero-content{position:relative;z-index:2;}
+.client-badge{display:inline-block;border:1px solid var(--border);color:var(--gold);font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:5px 16px;margin-bottom:18px;border-radius:1px;}
+.client-name{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,6vw,62px);font-weight:300;letter-spacing:2px;line-height:1.1;margin-bottom:10px;}
+.client-name strong{color:var(--gold);font-weight:600;}
+.client-meta{color:var(--white-dim);font-size:11px;letter-spacing:1px;margin-bottom:20px;}
+.hero-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto 0;}
+
+/* PLAN INFO */
+.plan-info-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;}
+.plan-pill{background:var(--dark2);border:1px solid var(--border);border-radius:4px;padding:12px 18px;flex:1;min-width:140px;}
+.plan-pill .pl-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--white-dim);margin-bottom:4px;}
+.plan-pill .pl-val{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold);font-weight:600;}
+
+/* PROGRESS BAR */
+.progress-week{background:var(--dark2);border:1px solid var(--border);border-radius:4px;padding:20px 22px;margin-bottom:20px;}
+.progress-week h4{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:14px;}
+.pw-info{display:flex;justify-content:space-between;font-size:11px;color:var(--white-dim);margin-bottom:8px;}
+.pw-bar{height:6px;background:rgba(255,255,255,0.07);border-radius:3px;overflow:hidden;}
+.pw-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px;transition:width 0.6s ease;}
+
+/* RECADOS */
+.recados-box{background:linear-gradient(135deg,#1a1500,var(--dark2));border:1px solid var(--gold);border-radius:4px;padding:22px;margin-bottom:20px;}
+.recados-box h4{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.recados-text{font-size:13px;line-height:1.9;color:var(--white-dim);white-space:pre-wrap;}
+
+/* PROFILE */
+.profile-grid{display:grid;grid-template-columns:1fr 2fr;gap:24px;margin:28px 0;}
+@media(max-width:680px){.profile-grid{grid-template-columns:1fr}}
+.profile-card{background:var(--dark2);border:1px solid var(--border);border-radius:4px;padding:26px;}
+.profile-card h3{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--gold);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.profile-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:12px;gap:10px;}
+.profile-item:last-child{border-bottom:none;}
+.profile-item .label{color:var(--white-dim);font-size:10px;letter-spacing:1px;text-transform:uppercase;}
+.profile-item .value{color:var(--white);font-weight:500;text-align:right;}
+.welcome-box{background:linear-gradient(135deg,var(--dark2) 0%,#161410 100%);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:4px;padding:26px;}
+.welcome-box p{font-size:13px;line-height:1.9;color:var(--white-dim);margin-bottom:12px;}
+.welcome-box p:last-child{margin-bottom:0;}
+.welcome-box strong{color:var(--gold);font-weight:600;}
+
+/* MEAL CARDS */
+.meal-card{background:var(--dark2);border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:16px;}
+.meal-card h3{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--gold);margin-bottom:6px;}
+.meal-time{font-size:10px;letter-spacing:2px;color:var(--white-dim);text-transform:uppercase;margin-bottom:14px;}
+.meal-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:4px;}
+.swipe-hint{text-align:center;font-size:10px;color:var(--white-dim);padding:4px 0 10px;opacity:0.7;}
+.meal-table{width:100%;border-collapse:collapse;min-width:560px;}
+.meal-table th{background:rgba(201,168,76,0.08);color:var(--gold);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;}
+.meal-table td{padding:10px 14px;font-size:11px;border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:top;color:var(--white-dim);}
+.meal-table tr:last-child td{border-bottom:none;}
+.meal-table .food-name{color:var(--white);font-weight:500;}
+.meal-table .total-row td{border-top:1px solid var(--border);color:var(--gold);font-weight:600;font-size:12px;}
+.meal-obs{margin-top:10px;}
+.meal-obs textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:3px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:11px;padding:10px 12px;resize:none;min-height:60px;outline:none;transition:border 0.3s;}
+.meal-obs textarea:focus{border-color:var(--gold);}
+.sub-search{background:var(--dark2);border:1px solid var(--border);border-radius:4px;padding:18px 22px;margin-bottom:20px;}
+.sub-search h4{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--gold);margin-bottom:12px;}
+.sub-search input{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:3px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;padding:9px 14px;outline:none;transition:border 0.3s;}
+.sub-search input:focus{border-color:var(--gold);}
+.sub-result{margin-top:10px;font-size:12px;color:var(--white-dim);min-height:20px;}
+
+/* TREINO */
+.treino-tabs{display:flex;gap:6px;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;scrollbar-width:none;}
+.treino-tabs::-webkit-scrollbar{display:none;}
+.treino-tab{background:var(--dark2);border:1px solid var(--border);color:var(--white-dim);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:11px 16px;min-height:40px;cursor:pointer;border-radius:2px;transition:all 0.3s;white-space:nowrap;-webkit-tap-highlight-color:transparent;}
+.treino-tab.active{color:var(--gold);border-color:var(--gold);background:var(--gold-dim);}
+.treino-content{display:none;}
+.treino-content.active{display:block;}
+.exercise-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:4px;}
+.exercise-table{width:100%;border-collapse:collapse;min-width:500px;}
+.exercise-table th{background:rgba(201,168,76,0.08);color:var(--gold);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;}
+.exercise-table td{padding:10px 14px;font-size:11px;border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:middle;color:var(--white-dim);}
+.exercise-table tr:last-child td{border-bottom:none;}
+.exercise-table .ex-name{color:var(--white);font-weight:500;}
+.video-btn{display:inline-flex;align-items:center;gap:5px;background:var(--gold-dim);border:1px solid var(--border);color:var(--gold);font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:5px 10px;border-radius:2px;text-decoration:none;transition:all 0.3s;white-space:nowrap;-webkit-tap-highlight-color:transparent;}
+.video-btn:hover{background:var(--gold);color:#000;}
+
+/* CARDIO */
+.cardio-protocol{background:var(--dark2);border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:16px;}
+.cardio-protocol h3{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--gold);margin-bottom:14px;}
+.zone-badge{display:inline-block;padding:3px 12px;border-radius:2px;font-size:10px;letter-spacing:1px;font-weight:600;margin-bottom:8px;}
+.zone-z2{background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);}
+.zone-z3{background:rgba(248,196,100,0.15);border:1px solid rgba(248,196,100,0.3);color:#f8c464;}
+
+/* BIBLIOTECA */
+.biblio-block{background:var(--dark2);border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:16px;}
+.biblio-block-title{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.biblio-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.04);}
+.biblio-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.biblio-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:600;}
+.biblio-item p{font-size:12px;line-height:1.9;color:var(--white-dim);}
+.ig-link{display:inline-flex;align-items:center;gap:5px;background:var(--gold-dim);border:1px solid var(--border);color:var(--gold);font-size:9px;letter-spacing:1px;padding:5px 10px;border-radius:2px;text-decoration:none;transition:all 0.3s;-webkit-tap-highlight-color:transparent;}
+.ig-link:hover{background:var(--gold);color:#000;}
+
+/* EVOLUÇÃO */
+.photo-upload-area{border:2px dashed var(--border);border-radius:4px;padding:40px;text-align:center;cursor:pointer;transition:border 0.3s;margin-bottom:20px;}
+.photo-upload-area:hover{border-color:var(--gold);}
+.upload-label{cursor:pointer;display:block;}
+.upload-icon{font-size:32px;margin-bottom:10px;}
+.upload-text{font-size:12px;color:var(--white-dim);}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;}
+.photo-item{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:3/4;}
+.photo-item img{width:100%;height:100%;object-fit:cover;}
+
+/* FEEDBACK */
+.fb-obs{background:var(--gold-dim);border:1px solid var(--border);border-radius:4px;padding:14px 18px;font-size:12px;color:var(--white-dim);margin-bottom:24px;line-height:1.8;}
+.fb-section{background:var(--dark2);border:1px solid var(--border);border-radius:4px;padding:22px;margin-bottom:16px;}
+.fb-section h3{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:16px;}
+.fb-question{margin-bottom:16px;}
+.fb-question:last-child{margin-bottom:0;}
+.fb-q-label{font-size:11px;color:var(--white-dim);margin-bottom:8px;line-height:1.6;}
+.fb-scale{display:flex;gap:6px;flex-wrap:wrap;}
+.fb-scale-btn,.fb-yn-btn{background:var(--dark3);border:1px solid var(--border);color:var(--white-dim);font-family:'Montserrat',sans-serif;font-size:10px;padding:8px 14px;min-height:40px;border-radius:2px;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:5px;-webkit-tap-highlight-color:transparent;}
+.fb-scale-btn.selected,.fb-yn-btn.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold);}
+.fb-yesno{display:flex;gap:6px;flex-wrap:wrap;}
+.fb-text-area{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:3px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;padding:12px 14px;resize:none;min-height:80px;outline:none;transition:border 0.3s;margin-top:8px;}
+.fb-text-area:focus{border-color:var(--gold);}
+.btn-generate{background:var(--gold);color:#000;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;padding:14px 28px;border-radius:2px;cursor:pointer;width:100%;margin-top:16px;transition:all 0.3s;-webkit-tap-highlight-color:transparent;}
+.btn-generate:hover{background:var(--gold-light);}
+.fb-result{background:var(--dark3);border:1px solid var(--border);border-radius:4px;padding:18px;margin-top:16px;font-size:12px;line-height:1.9;color:var(--white-dim);display:none;white-space:pre-wrap;}
+.btn-copy{background:var(--dark2);border:1px solid var(--gold);color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:1px;padding:8px 20px;border-radius:2px;cursor:pointer;margin-top:10px;width:100%;-webkit-tap-highlight-color:transparent;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L3 7v10l9 5 9-5V7L12 2z" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+          <path d="M12 2v20M3 7l9 5 9-5" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="nav-title">Consultoria LB<span>Luan Barreto · Nutricionista & Treinador</span></div>
+    </div>
+    <div class="nav-tabs" id="mainTabs">
+      <button class="tab-btn active" onclick="showSection('apresentacao')">Apresentação</button>
+      <button class="tab-btn" onclick="showSection('dieta')">Dieta</button>
+      <button class="tab-btn" onclick="showSection('treino')">Treino</button>
+      <button class="tab-btn" onclick="showSection('cardio')">Cardio</button>
+      <button class="tab-btn" onclick="showSection('conscientizacao')">Conscientização</button>
+      <button class="tab-btn" onclick="showSection('z3distribuidora')">🛒 Z3</button>
+      <button class="tab-btn" onclick="showSection('evolucao')">Evolução</button>
+      <button class="tab-btn" onclick="showSection('relatorio')">Relatório</button>
+      <button class="tab-btn" onclick="showSection('feedback')">Feedback</button>
+      <button class="tab-btn" onclick="showSection('financeiro')">💳 Financeiro</button>
+    </div>
+    <button class="theme-toggle" onclick="document.body.classList.toggle('light-mode')" title="Alternar tema">☀</button>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- ═══════════════════════════════ APRESENTAÇÃO ═══════════════════════════════ -->
+<section id="apresentacao" class="section active">
+  <div class="client-hero">
+    <div class="hero-bg-img" style="background:linear-gradient(135deg,#1a1200,#0d0d0d);"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="client-badge">Consultoria LB · Plano Personalizado</div>
+      <div class="client-name">Eukícia <strong>Martins</strong></div>
+      <div class="client-meta">34 anos · 82 kg · 1,67 m · Especialista de Produtos</div>
+      <div class="hero-divider"></div>
+    </div>
+  </div>
+
+  <div class="plan-info-bar">
+    <div class="plan-pill"><div class="pl-label">Objetivo</div><div class="pl-val" style="font-size:14px;">Saúde & Composição</div></div>
+    <div class="plan-pill"><div class="pl-label">Refeições/dia</div><div class="pl-val">5</div></div>
+    <div class="plan-pill"><div class="pl-label">Calorias/dia</div><div class="pl-val">~1.662 kcal</div></div>
+    <div class="plan-pill"><div class="pl-label">Semana atual</div><div class="pl-val" id="weekNum">—</div></div>
+  </div>
+
+  <div class="recados-box">
+    <h4>📌 Recados do Treinador</h4>
+    <div class="recados-text">Eukícia, seja bem-vinda à Consultoria LB! 🎯
+
+Seu plano foi elaborado com foco em implementar uma rotina sólida de bons hábitos alimentares, sono e saúde. O objetivo não é apenas estética — é construir um corpo mais saudável, funcional e sustentável.
+
+Resultado vem da repetição consistente de bons hábitos, não de momentos isolados de motivação. Criando uma rotina com horários organizados para se alimentar, treinar e dormir, você reduz o desgaste mental e aumenta muito a adesão.
+
+Suporte disponível: segunda a sexta, 8h às 18h. 💬</div>
+  </div>
+
+  <div class="profile-grid">
+    <div class="profile-card">
+      <h3>Dados Pessoais</h3>
+      <div class="profile-item"><span class="label">Nome</span><span class="value">Eukícia Pereira Martins</span></div>
+      <div class="profile-item"><span class="label">Idade</span><span class="value">34 anos</span></div>
+      <div class="profile-item"><span class="label">Peso</span><span class="value">82 kg</span></div>
+      <div class="profile-item"><span class="label">Altura</span><span class="value">1,67 m</span></div>
+      <div class="profile-item"><span class="label">Sexo</span><span class="value">Feminino</span></div>
+      <div class="profile-item"><span class="label">Profissão</span><span class="value">Especialista de Produtos</span></div>
+    </div>
+    <div class="welcome-box">
+      <p>Eukícia, seu planejamento foi desenvolvido pensando na sua realidade — uma rotina funcional, prática e sustentável.</p>
+      <p>Com <strong>~1.662 kcal/dia</strong> distribuídas em 5 refeições, criamos um déficit calórico controlado que favorece a perda de gordura sem comprometer energia e qualidade de vida.</p>
+      <p>Lembre: a dieta cria o cenário, mas o resultado depende da <strong>execução completa do processo</strong> — alimentação, atividade física e sono trabalhando juntos.</p>
+      <p><strong>"Constância não é ausência de falhas, é capacidade de retorno."</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ DIETA ═══════════════════════════════ -->
+<section id="dieta" class="section">
+  <div class="section-header"><h2>Plano <span>Alimentar</span></h2><div class="section-line"></div></div>
+
+  <div class="sub-search">
+    <h4>🔍 Busca Rápida de Substitutos</h4>
+    <input type="text" id="subInput" placeholder="Digite um alimento para ver substituições..." oninput="searchSub(this.value)"/>
+    <div class="sub-result" id="subResult"></div>
+  </div>
+
+  <!-- R1 -->
+  <div class="meal-card">
+    <h3>Refeição 1 — Café da Manhã</h3>
+    <div class="meal-time">Horário em aberto</div>
+    <div class="meal-table-wrap">
+      <table class="meal-table">
+        <thead><tr><th>Alimento</th><th>Qtd</th><th>kcal</th><th>Carbo(g)</th><th>Prot(g)</th><th>Gord(g)</th><th>Substituições</th></tr></thead>
+        <tbody>
+          <tr><td class="food-name">Ovos inteiros</td><td>2 un</td><td>156</td><td>0,8</td><td>13,4</td><td>11,0</td><td>Frango 80g · Atum 80g · Patinho 80g · Whey 25g</td></tr>
+          <tr><td class="food-name">Pão integral</td><td>1 fatia (25g)</td><td>62</td><td>11,3</td><td>2,5</td><td>0,9</td><td>Tapioca 50g · Cuscuz 80g · Aveia 30g · Granola 30g</td></tr>
+          <tr><td class="food-name">Mamão</td><td>200g</td><td>74</td><td>18,9</td><td>1,0</td><td>0,2</td><td>Banana · Maçã · Melão · Uva · Abacaxi</td></tr>
+          <tr class="total-row"><td colspan="2">Total da Refeição</td><td>292</td><td>31g</td><td>17g</td><td>12g</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="swipe-hint">← deslize →</div>
+    <div class="meal-obs"><textarea id="obs-r1" placeholder="Observações desta refeição..." onblur="saveObs('r1',this.value)"></textarea></div>
+  </div>
+
+  <!-- R2 -->
+  <div class="meal-card">
+    <h3>Refeição 2 — Almoço</h3>
+    <div class="meal-time">Horário em aberto</div>
+    <div class="meal-table-wrap">
+      <table class="meal-table">
+        <thead><tr><th>Alimento</th><th>Qtd</th><th>kcal</th><th>Carbo(g)</th><th>Prot(g)</th><th>Gord(g)</th><th>Substituições</th></tr></thead>
+        <tbody>
+          <tr><td class="food-name">Arroz branco</td><td>70g</td><td>92</td><td>20,2</td><td>1,7</td><td>0,1</td><td>Batata 130g · Macarrão 80g · Aipim 100g · Cuscuz 80g</td></tr>
+          <tr><td class="food-name">Feijão</td><td>100g</td><td>76</td><td>13,6</td><td>4,8</td><td>0,5</td><td>Lentilha 100g · Grão-de-bico 100g · Ervilha 100g</td></tr>
+          <tr><td class="food-name">Peito de frango</td><td>120g</td><td>149</td><td>0</td><td>33,0</td><td>1,6</td><td>Patinho 120g · Tilápia 140g · Atum 120g</td></tr>
+          <tr><td class="food-name">Verduras e vegetais</td><td>150g</td><td>35</td><td>6,5</td><td>2,1</td><td>0,4</td><td>Couve · Brócolis · Cenoura · Abobrinha</td></tr>
+          <tr class="total-row"><td colspan="2">Total da Refeição</td><td>352</td><td>40g</td><td>42g</td><td>3g</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="swipe-hint">← deslize →</div>
+    <div class="meal-obs"><textarea id="obs-r2" placeholder="Observações desta refeição..." onblur="saveObs('r2',this.value)"></textarea></div>
+  </div>
+
+  <!-- R3 -->
+  <div class="meal-card">
+    <h3>Refeição 3 — Lanche da Tarde</h3>
+    <div class="meal-time">Horário em aberto</div>
+    <div class="meal-table-wrap">
+      <table class="meal-table">
+        <thead><tr><th>Alimento</th><th>Qtd</th><th>kcal</th><th>Carbo(g)</th><th>Prot(g)</th><th>Gord(g)</th><th>Substituições</th></tr></thead>
+        <tbody>
+          <tr><td class="food-name">Ovos inteiros</td><td>2 un</td><td>156</td><td>0,8</td><td>13,4</td><td>11,0</td><td>Frango 80g · Atum 80g · Patinho 80g · Whey 25g</td></tr>
+          <tr><td class="food-name">Pão integral</td><td>2 fatias (50g)</td><td>124</td><td>22,6</td><td>5,0</td><td>1,8</td><td>Tapioca 70g · Cuscuz 100g · Aveia 40g · Granola 40g</td></tr>
+          <tr><td class="food-name">Fruta</td><td>1 porção</td><td>60</td><td>14,0</td><td>0,7</td><td>0,3</td><td>Banana · Maçã · Mamão · Melão · Uva</td></tr>
+          <tr class="total-row"><td colspan="2">Total da Refeição</td><td>340</td><td>37g</td><td>19g</td><td>13g</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="swipe-hint">← deslize →</div>
+    <div class="meal-obs"><textarea id="obs-r3" placeholder="Observações desta refeição..." onblur="saveObs('r3',this.value)"></textarea></div>
+  </div>
+
+  <!-- R4 -->
+  <div class="meal-card">
+    <h3>Refeição 4 — Jantar</h3>
+    <div class="meal-time">Horário em aberto</div>
+    <div class="meal-table-wrap">
+      <table class="meal-table">
+        <thead><tr><th>Alimento</th><th>Qtd</th><th>kcal</th><th>Carbo(g)</th><th>Prot(g)</th><th>Gord(g)</th><th>Substituições</th></tr></thead>
+        <tbody>
+          <tr><td class="food-name">Arroz branco</td><td>70g</td><td>92</td><td>20,2</td><td>1,7</td><td>0,1</td><td>Batata 130g · Macarrão 80g · Aipim 100g · Cuscuz 80g</td></tr>
+          <tr><td class="food-name">Feijão</td><td>100g</td><td>76</td><td>13,6</td><td>4,8</td><td>0,5</td><td>Lentilha 100g · Grão-de-bico 100g · Ervilha 100g</td></tr>
+          <tr><td class="food-name">Peito de frango</td><td>120g</td><td>149</td><td>0</td><td>33,0</td><td>1,6</td><td>Patinho 120g · Tilápia 140g · Atum 120g</td></tr>
+          <tr><td class="food-name">Verduras e vegetais</td><td>150g</td><td>35</td><td>6,5</td><td>2,1</td><td>0,4</td><td>Couve · Brócolis · Cenoura · Abobrinha</td></tr>
+          <tr class="total-row"><td colspan="2">Total da Refeição</td><td>352</td><td>40g</td><td>42g</td><td>3g</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="swipe-hint">← deslize →</div>
+    <div class="meal-obs"><textarea id="obs-r4" placeholder="Observações desta refeição..." onblur="saveObs('r4',this.value)"></textarea></div>
+  </div>
+
+  <!-- R5 -->
+  <div class="meal-card">
+    <h3>Refeição 5 — Ceia</h3>
+    <div class="meal-time">Horário em aberto</div>
+    <div class="meal-table-wrap">
+      <table class="meal-table">
+        <thead><tr><th>Alimento</th><th>Qtd</th><th>kcal</th><th>Carbo(g)</th><th>Prot(g)</th><th>Gord(g)</th><th>Substituições</th></tr></thead>
+        <tbody>
+          <tr><td class="food-name">Ovos inteiros</td><td>2 un</td><td>156</td><td>0,8</td><td>13,4</td><td>11,0</td><td>Frango 80g · Atum 80g · Patinho 80g · Whey 25g</td></tr>
+          <tr><td class="food-name">Pão integral</td><td>2 fatias (50g)</td><td>124</td><td>22,6</td><td>5,0</td><td>1,8</td><td>Tapioca 70g · Cuscuz 100g · Aveia 40g · Granola 40g</td></tr>
+          <tr><td class="food-name">Fruta</td><td>1 porção</td><td>60</td><td>14,0</td><td>0,7</td><td>0,3</td><td>Banana · Maçã · Mamão · Melão · Uva</td></tr>
+          <tr class="total-row"><td colspan="2">Total da Refeição</td><td>340</td><td>37g</td><td>19g</td><td>13g</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="swipe-hint">← deslize →</div>
+    <div class="meal-obs"><textarea id="obs-r5" placeholder="Observações desta refeição..." onblur="saveObs('r5',this.value)"></textarea></div>
+  </div>
+
+  <!-- TOTAL DIÁRIO -->
+  <div class="meal-card" style="border-color:var(--gold);background:linear-gradient(135deg,rgba(201,168,76,0.06),var(--dark2));">
+    <h3>Total Diário</h3>
+    <div class="meal-table-wrap">
+      <table class="meal-table">
+        <thead><tr><th>Energia</th><th>Carboidratos</th><th>Proteínas</th><th>Gorduras</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--gold);font-size:20px;font-weight:700;">~1.676 kcal</td><td style="color:#8ab4f8;font-size:16px;font-weight:600;">185g</td><td style="color:#7dd87d;font-size:16px;font-weight:600;">134g</td><td style="color:#f8c464;font-size:16px;font-weight:600;">42g</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="swipe-hint">← deslize →</div>
+  </div>
+
+  <!-- ORIENTAÇÕES NUTRICIONAIS -->
+  <div class="section-header" style="margin-top:40px;"><h2>Orientações <span>Nutricionais</span></h2><div class="section-line"></div></div>
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    <div class="meal-card">
+      <h3 style="font-size:15px;margin-bottom:8px;">🥦 Verduras, Vegetais e Saladas</h3>
+      <p style="font-size:12px;color:var(--white-dim);line-height:1.9;">Inclua no seu dia alimentos como brócolis, cenoura, vagem, chuchu, abobrinha, beterraba, aspargos e abóbora. Use legumes como volume alimentar — eles ajudam na saciedade. Saladas verdes (alface, rúcula, agrião) podem ser consumidas à vontade. Experimente combinar: rúcula, tomate e manga; brócolis com azeite e limão. <strong style="color:var(--white)">Não deixe de consumir legumes nas refeições.</strong></p>
+    </div>
+    <div class="meal-card">
+      <h3 style="font-size:15px;margin-bottom:8px;">💧 Hidratação e Bebidas</h3>
+      <p style="font-size:12px;color:var(--white-dim);line-height:1.9;">Consuma pelo menos <strong style="color:var(--white)">3 litros de água por dia</strong> (ideal: 40ml × peso = ~3,3L). Café preto sem açúcar pode à vontade — evite após as 16h. Refrigerante zero pode ser usado ocasionalmente. Evite refrigerantes comuns, álcool e sucos de frutas (exceto limão sem açúcar).</p>
+    </div>
+    <div class="meal-card">
+      <h3 style="font-size:15px;margin-bottom:8px;">💊 Suplementação</h3>
+      <p style="font-size:12px;color:var(--white-dim);line-height:1.9;"><strong style="color:var(--white)">Creatina: 5g ao dia</strong> com qualquer refeição, sem necessidade de parar. <strong style="color:var(--white)">Ômega 3: 1g ao dia</strong> (EPA + DHA). Whey protein apenas nas refeições indicadas.</p>
+    </div>
+    <div class="meal-card">
+      <h3 style="font-size:15px;margin-bottom:8px;">🍽️ Refeição Livre e Álcool</h3>
+      <p style="font-size:12px;color:var(--white-dim);line-height:1.9;"><strong style="color:var(--white)">1 refeição livre por semana</strong> — planejada e consciente. Use esse momento com equilíbrio: aproveite socialmente, mas sem exageros. Álcool deve ser evitado ou controlado: prejudica a queima de gordura, o sono, a recuperação e a consistência.</p>
+    </div>
+    <div class="meal-card">
+      <h3 style="font-size:15px;margin-bottom:8px;">⏰ Intervalos e Horários</h3>
+      <p style="font-size:12px;color:var(--white-dim);line-height:1.9;">Faça suas refeições respeitando intervalos de <strong style="color:var(--white)">3 a 4 horas</strong>. Horários flexíveis — encaixe na sua rotina. Nos dias sem treino, faça pelo menos 40 minutos de atividade aeróbica e mantenha normalmente as frutas, legumes e proteínas.</p>
+    </div>
+    <div class="meal-card">
+      <h3 style="font-size:15px;margin-bottom:8px;">🍳 Modo de Preparo e Criatividade</h3>
+      <p style="font-size:12px;color:var(--white-dim);line-height:1.9;">Ovos: mexidos, cozidos, omelete ou panqueca proteica. Frango: grelhado, desfiado, assado, em cubos ou teriyaki. Batatas: cozidas, assadas, purê ou airfryer. Feijão e grão-de-bico: ensopados, saladas frias ou homus. O segredo é variar o preparo para manter a dieta prática e saborosa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ TREINO ═══════════════════════════════ -->
+<section id="treino" class="section">
+  <div class="section-header"><h2>Orientações de <span>Treino</span></h2><div class="section-line"></div></div>
+
+  <div class="recados-box" style="margin-bottom:24px;">
+    <h4>ℹ️ Sobre o Treino</h4>
+    <div class="recados-text">Eukícia, seu treinamento de musculação não é acompanhado pela Consultoria LB neste momento. As orientações abaixo são gerais para te ajudar a manter uma rotina consistente e eficiente.
+
+A recomendação mínima é realizar 3 a 4 treinos de musculação por semana, com pelo menos 200 minutos de atividade aeróbica distribuídos ao longo da semana.</div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;">
+    <div class="meal-card">
+      <h3 style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:19px;margin-bottom:12px;">🏋️ Frequência de Treino</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px;">
+        <div style="background:var(--dark3);border:1px solid var(--border);border-radius:4px;padding:16px;text-align:center;">
+          <div style="font-size:36px;font-weight:700;color:var(--gold);">3–4</div>
+          <div style="font-size:10px;color:var(--white-dim);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Treinos por semana</div>
+        </div>
+        <div style="background:var(--dark3);border:1px solid var(--border);border-radius:4px;padding:16px;text-align:center;">
+          <div style="font-size:36px;font-weight:700;color:var(--green);">200+</div>
+          <div style="font-size:10px;color:var(--white-dim);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Min aeróbico/semana</div>
+        </div>
+        <div style="background:var(--dark3);border:1px solid var(--border);border-radius:4px;padding:16px;text-align:center;">
+          <div style="font-size:36px;font-weight:700;color:var(--blue);">45–60</div>
+          <div style="font-size:10px;color:var(--white-dim);letter-spacing:1px;text-transform:uppercase;margin-top:4px;">Min por sessão</div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--white-dim);line-height:1.9;">Sem treino, o corpo não tem motivo para preservar ou construir músculo. A musculação estimula a massa muscular, melhora o metabolismo, aumenta o gasto energético e potencializa a perda de gordura.</p>
+    </div>
+
+    <div class="meal-card">
+      <h3 style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:19px;margin-bottom:12px;">📋 Orientações Gerais de Musculação</h3>
+      <ul style="font-size:12px;color:var(--white-dim);line-height:2;padding-left:16px;">
+        <li>Sempre inicie com aquecimento leve de 5–10 minutos</li>
+        <li>Priorize exercícios compostos (agachamento, supino, remada, levantamento terra)</li>
+        <li>Realize de <strong style="color:var(--white);">3 a 4 séries</strong> por exercício</li>
+        <li>Exercícios compostos: <strong style="color:var(--white);">6–10 repetições</strong></li>
+        <li>Exercícios isolados: <strong style="color:var(--white);">10–15 repetições</strong></li>
+        <li>Descanso entre séries: 60–90 segundos</li>
+        <li>Aumente a carga progressivamente ao longo das semanas</li>
+        <li>Mantenha a técnica correta — qualidade acima de carga</li>
+      </ul>
+    </div>
+
+    <div class="meal-card">
+      <h3 style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:19px;margin-bottom:12px;">📅 Sugestão de Divisão Semanal</h3>
+      <div class="exercise-table-wrap">
+        <table class="exercise-table">
+          <thead><tr><th>Dia</th><th>Foco</th><th>Exemplos</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--gold);font-weight:600;">Segunda</td><td>Membros inferiores</td><td style="color:var(--white-dim);">Agachamento · Leg Press · Cadeira extensora · Panturrilha</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600;">Terça</td><td>Membros superiores (peito/ombro/tríceps)</td><td style="color:var(--white-dim);">Supino · Desenvolvimento · Elevação lateral · Tríceps polia</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600;">Quarta</td><td>Descanso ou aeróbico leve</td><td style="color:var(--white-dim);">Caminhada · Bike · Natação</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600;">Quinta</td><td>Costas / Bíceps</td><td style="color:var(--white-dim);">Remada · Puxada · Rosca direta · Rosca martelo</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600;">Sexta</td><td>Glúteos / Posterior</td><td style="color:var(--white-dim);">Hip thrust · Stiff · Cadeira flexora · Abdutora</td></tr>
+            <tr><td style="color:var(--gold);font-weight:600;">Sáb/Dom</td><td>Aeróbico ou descanso</td><td style="color:var(--white-dim);">150 min/semana OMS (recomendação mínima)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="swipe-hint">← deslize →</div>
+    </div>
+
+    <div class="meal-card">
+      <h3 style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:19px;margin-bottom:12px;">😴 Recuperação e Sono</h3>
+      <p style="font-size:12px;color:var(--white-dim);line-height:1.9;">O corpo não evolui no treino — evolui no <strong style="color:var(--white)">descanso</strong>. Sono de <strong style="color:var(--white)">7 a 9 horas por noite</strong> é essencial para recuperação muscular, regulação hormonal e controle de apetite. Dormir mal é treinar em vão.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CARDIO ═══════════════════════════════ -->
+<section id="cardio" class="section">
+  <div class="section-header"><h2>Atividade <span>Aeróbica</span></h2><div class="section-line"></div></div>
+
+  <div class="plan-info-bar">
+    <div class="plan-pill"><div class="pl-label">Meta semanal</div><div class="pl-val">200+ min</div></div>
+    <div class="plan-pill"><div class="pl-label">Frequência</div><div class="pl-val">5x/sem</div></div>
+    <div class="plan-pill"><div class="pl-label">Duração por sessão</div><div class="pl-val">40 min</div></div>
+    <div class="plan-pill"><div class="pl-label">Zona principal</div><div class="pl-val" style="color:var(--green);">Z2</div></div>
+  </div>
+
+  <div class="cardio-protocol">
+    <h3>🎯 Protocolo Recomendado</h3>
+    <span class="zone-badge zone-z2">Zona 2 — RPE 3-4</span>
+    <p style="font-size:12px;color:var(--white-dim);line-height:1.9;margin-top:10px;">A recomendação é realizar <strong style="color:var(--white)">pelo menos 200 minutos de atividade aeróbica por semana</strong>, distribuídos em 5 sessões de 40 minutos. Esse hábito ajuda a aumentar o gasto calórico, melhorar a saúde cardiovascular, melhorar o controle metabólico e acelerar o processo de perda de gordura.</p>
+    <div class="exercise-table-wrap" style="margin-top:16px;">
+      <table class="exercise-table">
+        <thead><tr><th>Frequência</th><th>Duração</th><th>Intensidade</th><th>RPE</th><th>Exemplos</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--white);font-weight:500;">5x por semana</td><td>40 min</td><td><span class="zone-badge zone-z2" style="font-size:9px;">Zona 2</span></td><td>3–4 / 10</td><td style="color:var(--white-dim);">Caminhada rápida · Bike · Esteira · Natação · Dança</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="swipe-hint">← deslize →</div>
+  </div>
+
+  <div class="cardio-protocol">
+    <h3>📊 O que é Zona 2</h3>
+    <p style="font-size:12px;color:var(--white-dim);line-height:1.9;">Zona 2 é uma intensidade moderada onde você consegue manter uma conversa, mas percebe que está se esforçando. É a zona mais eficiente para:<br><br>
+    ✅ Queima de gordura como combustível principal<br>
+    ✅ Melhora da saúde cardiovascular<br>
+    ✅ Baixo impacto — sem comprometer a recuperação muscular<br>
+    ✅ Sustentável a longo prazo<br><br>
+    <strong style="color:var(--white)">Se sentir que está muito fácil, aumente um pouco o passo ou inclinação. Se não conseguir falar, diminua o ritmo.</strong></p>
+  </div>
+
+  <div class="cardio-protocol">
+    <h3>💡 Dicas Práticas</h3>
+    <ul style="font-size:12px;color:var(--white-dim);line-height:2;padding-left:16px;">
+      <li>Nos dias de musculação: faça o aeróbico <strong style="color:var(--white)">após o treino de força</strong></li>
+      <li>Nos dias sem musculação: faça pelo menos <strong style="color:var(--white)">40 minutos de aeróbico</strong></li>
+      <li>Escolha atividades que você goste — caminhada, bike, natação, dança, tudo conta</li>
+      <li>Registre seu tempo acumulado na semana para atingir os 200 minutos</li>
+      <li>Não precisa ser tudo na academia — caminhada no parque, passeio com o pet, tudo conta</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONSCIENTIZAÇÃO ═══════════════════════════════ -->
+<section id="conscientizacao" class="section">
+  <div class="section-header"><h2>Área de <span>Conscientização</span></h2><div class="section-line"></div></div>
+  <p style="font-size:11px;color:var(--white-dim);margin-bottom:28px;line-height:1.8;">Dicas e conteúdos do seu treinador sobre nutrição, mentalidade, sono e saúde. Assista no seu ritmo.</p>
+
+  <!-- COMPORTAMENTO E MENTALIDADE -->
+  <div class="biblio-block">
+    <div class="biblio-block-title">🧠 Comportamento e Mentalidade</div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">⚡ Performance X Perder Gordura</div>
+      <p>Querer hipertrofia e emagrecimento ao mesmo tempo exige equilíbrio e estratégia. Déficit agressivo destrói recuperação e compromete a síntese muscular. O corpo precisa de direção clara, não de extremos.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DYhdnxBRyHb/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🔁 Saber não é o mesmo que fazer</div>
+      <p>Todo mundo sabe o que fazer. Quase ninguém se mantém fazendo. A diferença entre quem chega lá e quem fica no mesmo lugar não é conhecimento — é processo.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DXea2_gkcQt/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🤝 Negociando com você mesmo</div>
+      <p>Cada vez que você negocia com você mesmo, você quebra uma promessa consigo. A solução é honrar o que você disse que queria.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DYFNPgCRgWD/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🚫 Não espere o momento perfeito</div>
+      <p>A vida sempre terá imprevistos. Disciplina e persistência são mais importantes que motivação. Resultados vêm da consistência diária, mesmo em meio ao caos da rotina.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DOgG7RTkYOx/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🧠 Controle seus gatilhos emocionais</div>
+      <p>Comer por ansiedade, tédio ou estresse é mais comum do que parece. Antes de agir fora do plano, pergunte-se: "Isso está alinhado com meus objetivos?"</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DIgvrSWtLYo/" target="_blank" class="ig-link">▶ VER</a>
+        <a href="https://www.instagram.com/p/DFL_eyYPhad/" target="_blank" class="ig-link">▶ Controle comportamental</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🌱 Consistência e Hábitos</div>
+      <p>Sua vida ficará muito mais fácil se você repetir as mesmas coisas todos os dias, mantendo hábitos fixos. Tenha horário fixo para treinar, comer e descansar.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DN1T1hF4gf-/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🏠 Seu ambiente te ajuda ou te atrapalha?</div>
+      <p>O ambiente que você vive molda seus comportamentos antes mesmo de você decidir conscientemente. Organizar o que te rodeia — geladeira, rotina, companhias — é parte fundamental da estratégia de emagrecimento.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/p/DGAlIGuRb3Q/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NUTRIÇÃO -->
+  <div class="biblio-block">
+    <div class="biblio-block-title">🥗 Nutrição e Alimentação</div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🍽️ Não sei o que comer à tarde</div>
+      <p>Uma refeição simples, prática e estratégica pode mudar completamente sua fome no fim do dia e a performance no treino.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/p/DYA05hhkVVX/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🥦 Isso aqui mata sua fome</div>
+      <p>Não é só o que você come — é o volume e a fibra que determinam a saciedade. Almoço com mais vegetais = mais fome controlada o dia todo.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/p/DXu0eOikcgc/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">⚠️ Déficit Calórico vs Déficit Nutricional</div>
+      <p>Comer pouco não significa comer certo. Déficit de nutrientes gera menos energia, pior recuperação e perda de massa muscular.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DXo7pFTkWJ1/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🔄 De quanto em quanto tempo trocar a dieta?</div>
+      <p>Consistência costuma ser mais importante do que variedade. O corpo responde principalmente ao balanço energético e à adesão ao plano ao longo do tempo.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DXHaD9QEbks/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🎯 Pequenos erros na dieta</div>
+      <p>Qualquer detalhe fora do planejamento já é um erro. Chega mais longe quem erra menos.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DYXR3N8syMd/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🚨 Se você ataca a geladeira à noite</div>
+      <p>Entenda por que isso acontece e como resolver com estratégia alimentar — não força de vontade.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/p/DHnxe5kxiT3/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">📊 Emagrecer não é só déficit calórico</div>
+      <p>Saúde metabólica, hormonal e comportamental fazem parte do processo. Entenda por que focar apenas em calorias pode não ser suficiente.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/p/DFumgRnRBgR/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🍽️ Refeição Livre</div>
+      <p>A refeição livre deve fazer parte de um estilo de vida equilibrado — não ser um momento de exagero. Use com consciência.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DNGS8cSRS5X/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPLEMENTAÇÃO -->
+  <div class="biblio-block">
+    <div class="biblio-block-title">💊 Suplementação</div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">💊 Você realmente precisa de Mounjaro?</div>
+      <p>Frutas, vegetais, leguminosas, fibras e proteína fariam o que muita gente usa Mounjaro pra fazer. O remédio foi criado pra quem realmente precisa.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DYe7YNKRydI/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">💪 Benefícios da Creatina</div>
+      <p>A creatina é um dos suplementos mais estudados e eficazes. Aumenta força, volume de treino e recuperação muscular. 5g ao dia, todo dia, sem necessidade de parar.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/p/DI1V0hqRXMQ/" target="_blank" class="ig-link">▶ VER</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SONO E RECUPERAÇÃO -->
+  <div class="biblio-block">
+    <div class="biblio-block-title">😴 Sono e Recuperação</div>
+
+    <div class="biblio-item">
+      <div class="biblio-tag">🍺 O álcool inibe seu potencial</div>
+      <p>Álcool prejudica a qualidade do sono, recuperação muscular, função cognitiva e produção hormonal. Mesmo em doses moderadas.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+        <a href="https://www.instagram.com/reel/DXxSy9SxBKT/" target="_blank" class="ig-link">▶ VER</a>
+        <a href="https://www.instagram.com/p/DH1zPPIvjfl/" target="_blank" class="ig-link">▶ Prejuízos do álcool</a>
+        <a href="https://www.instagram.com/p/DI4b3FnSxAz/" target="_blank" class="ig-link">▶ Álcool no final de semana</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ Z3 DISTRIBUIDORA ═══════════════════════════════ -->
+<section id="z3distribuidora" class="section">
+  <div class="section-header"><h2>🛒 Z3 <span>Distribuidora</span></h2><div class="section-line"></div></div>
+  <div style="background:linear-gradient(135deg,rgba(201,168,76,0.08),var(--dark2));border:1px solid var(--border);border-radius:8px;padding:32px;text-align:center;margin-bottom:24px;">
+    <div style="font-size:48px;margin-bottom:16px;">🛒</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);margin-bottom:8px;">Z3 Distribuidora</div>
+    <div style="font-size:13px;color:var(--white-dim);margin-bottom:24px;line-height:1.8;">Catálogo com <strong style="color:var(--white);">16 marcas</strong> · PIX ou cartão · Pedido mínimo <strong style="color:var(--white);">R$399</strong> · Pedido pelo WhatsApp</div>
+    <a href="https://z3distribuidora.netlify.app/" target="_blank" style="display:inline-block;background:var(--gold);color:#000;font-weight:700;font-size:13px;letter-spacing:1px;padding:14px 32px;border-radius:4px;text-decoration:none;">🛒 Acessar Catálogo — Z3 Distribuidora</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+    <div style="background:var(--dark2);border:1px solid var(--border);border-radius:6px;padding:20px;text-align:center;">
+      <div style="font-size:28px;margin-bottom:8px;">🏷️</div>
+      <div style="font-size:12px;font-weight:600;color:var(--gold);margin-bottom:4px;">16 Marcas</div>
+      <div style="font-size:11px;color:var(--white-dim);">Maior variedade de suplementos</div>
+    </div>
+    <div style="background:var(--dark2);border:1px solid var(--border);border-radius:6px;padding:20px;text-align:center;">
+      <div style="font-size:28px;margin-bottom:8px;">💳</div>
+      <div style="font-size:12px;font-weight:600;color:var(--gold);margin-bottom:4px;">PIX ou Cartão</div>
+      <div style="font-size:11px;color:var(--white-dim);">Pagamento facilitado</div>
+    </div>
+    <div style="background:var(--dark2);border:1px solid var(--border);border-radius:6px;padding:20px;text-align:center;">
+      <div style="font-size:28px;margin-bottom:8px;">📦</div>
+      <div style="font-size:12px;font-weight:600;color:var(--gold);margin-bottom:4px;">Pedido Mínimo R$399</div>
+      <div style="font-size:11px;color:var(--white-dim);">Pedido direto pelo WhatsApp</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ EVOLUÇÃO ═══════════════════════════════ -->
+<section id="evolucao" class="section">
+  <div class="section-header"><h2>Fotos de <span>Acompanhamento</span></h2><div class="section-line"></div></div>
+  <div class="photo-upload-area">
+    <label class="upload-label" for="photoUpload">
+      <div class="upload-icon">📷</div>
+      <div class="upload-text">Toque para adicionar foto de acompanhamento</div>
+    </label>
+    <input type="file" id="photoUpload" accept="image/*" multiple onchange="addPhotos(this)">
+  </div>
+  <div class="photo-grid" id="photoGrid"></div>
+</section>
+
+<!-- ═══════════════════════════════ RELATÓRIO ═══════════════════════════════ -->
+<section id="relatorio" class="section">
+  <div class="section-header"><h2>Relatório <span>Personalizado</span></h2><div class="section-line"></div></div>
+  <div style="background:linear-gradient(135deg,rgba(201,168,76,0.06),var(--dark2));border:1px solid var(--border);border-radius:4px;padding:22px 24px;margin-bottom:20px;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);margin-bottom:6px;">Eukícia Pereira Martins</div>
+    <div style="font-size:10px;color:var(--white-dim);letter-spacing:1px;">RELATÓRIO DE ACOMPANHAMENTO · CONSULTORIA LB</div>
+    <div style="font-size:11px;color:var(--white-dim);margin-top:8px;line-height:1.8;">Além das explicações neste relatório, incluí links para vídeos educativos do meu Instagram para reforçar a conscientização e facilitar sua adesão ao processo.</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:18px;">
+
+    <div class="meal-card">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:12px;">🎯 Objetivo</div>
+      <p style="font-size:12px;color:var(--white-dim);line-height:2;">Implementar uma rotina com bons hábitos alimentares, treinamento e controle do sono, com foco em <strong style="color:var(--white)">melhora da saúde, qualidade de vida, bem-estar físico e mental e melhora da composição corporal</strong>. A proposta é criar uma base sólida de rotina, pois o resultado não vem de ações isoladas, e sim da repetição consistente de bons hábitos ao longo do tempo. O objetivo não é apenas estética, mas construir um corpo mais saudável, funcional e sustentável.</p>
+      <div style="margin-top:12px;"><a href="https://www.instagram.com/reel/DN1T1hF4gf-/" target="_blank" class="ig-link">▶ Entenda o processo</a></div>
+    </div>
+
+    <div class="meal-card">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:12px;">🍽️ Planejamento da Dieta</div>
+      <p style="font-size:12px;color:var(--white-dim);line-height:2;">Foi elaborado um planejamento alimentar com <strong style="color:var(--white)">5 refeições ao longo do dia</strong>, totalizando uma média de aproximadamente <strong style="color:var(--white)">~1.662 calorias por dia</strong>. Esse padrão calórico cria um cenário favorável para perda de peso, redução de gordura corporal e melhora da composição corporal. A dieta cria o cenário, mas o resultado depende da execução completa do processo.</p>
+      <div style="margin-top:12px;"><a href="https://www.instagram.com/reel/DIzjTBhSr95/" target="_blank" class="ig-link">▶ Organização alimentar</a></div>
+    </div>
+
+    <div class="meal-card">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:12px;">🧠 Comportamento e Constância</div>
+      <p style="font-size:12px;color:var(--white-dim);line-height:2;">Resultado vem da repetição consistente de bons hábitos, não de momentos isolados de motivação. Criar uma rotina com horários organizados para se alimentar, treinar e dormir reduz o desgaste mental e aumenta a adesão.</p>
+      <div style="margin-top:10px;background:rgba(201,168,76,0.05);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:3px;padding:10px 14px;font-size:11px;color:var(--white);font-style:italic;">"Constância não é ausência de falhas, é capacidade de retorno."</div>
+      <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;">
+        <a href="https://www.instagram.com/reel/DHqfIjkxlM7/" target="_blank" class="ig-link">▶ Constância vence intensidade</a>
+        <a href="https://www.instagram.com/reel/DOgG7RTkYOx/" target="_blank" class="ig-link">▶ Não espere o momento perfeito</a>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:12px;">⏰ Horário das Refeições</div>
+      <p style="font-size:12px;color:var(--white-dim);line-height:2;">Os horários das refeições podem ser flexíveis e adaptados à sua rotina. O mais importante é manter intervalos de aproximadamente <strong style="color:var(--white)">3 a 4 horas entre as refeições</strong>, regularidade no padrão alimentar e organização ao longo do dia.</p>
+      <div style="margin-top:12px;"><a href="https://www.instagram.com/reel/DNjfRDHvKzi/" target="_blank" class="ig-link">▶ Organização de horários</a></div>
+    </div>
+
+    <div class="meal-card">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:12px;">🏋️ Treinamento</div>
+      <p style="font-size:12px;color:var(--white-dim);line-height:2;">A orientação inicial é realizar pelo menos <strong style="color:var(--white)">3 treinos de musculação por semana</strong>. Esse é o ponto de partida para estimular a massa muscular, melhorar o metabolismo, aumentar o gasto energético e facilitar a perda de gordura. Sem treino, o corpo não tem motivo para preservar ou construir músculo.</p>
+    </div>
+
+    <div class="meal-card">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:12px;">🚴 Atividade Aeróbica</div>
+      <p style="font-size:12px;color:var(--white-dim);line-height:2;">A recomendação é realizar pelo menos <strong style="color:var(--white)">200 minutos de atividade aeróbica por semana</strong> — isso pode ser distribuído como 40 minutos por dia, 5x na semana. Esse hábito ajuda a aumentar o gasto calórico, melhorar a saúde cardiovascular e acelerar o processo de perda de gordura.</p>
+      <div style="margin-top:12px;"><a href="https://www.instagram.com/reel/DOY2YvMEbxP/" target="_blank" class="ig-link">▶ Benefícios do cardio</a></div>
+    </div>
+
+    <div class="meal-card">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:12px;">🍽️ Refeição Livre e Álcool</div>
+      <p style="font-size:12px;color:var(--white-dim);line-height:2;">Manter <strong style="color:var(--white)">1 refeição livre por semana</strong>, de forma planejada. Evitar exageros com alimentos ricos em açúcar e gordura. O consumo de álcool deve ser evitado ou controlado — prejudica a queima de gordura, impacta o sono, reduz a recuperação e atrapalha a consistência.</p>
+      <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;">
+        <a href="https://www.instagram.com/reel/DNGS8cSRS5X/" target="_blank" class="ig-link">▶ Refeição livre</a>
+        <a href="https://www.instagram.com/reel/DXxSy9SxBKT/" target="_blank" class="ig-link">▶ Álcool e impactos</a>
+      </div>
+    </div>
+
+    <div class="meal-card">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);margin-bottom:12px;">📌 Suporte</div>
+      <p style="font-size:12px;color:var(--white-dim);line-height:2;">Você conta com suporte de <strong style="color:var(--white)">segunda a sexta, das 8h às 18h</strong>, para tirar dúvidas, alinhar estratégias, ajustar o plano e otimizar resultados. Use esse canal — quanto mais você se comunica, mais eficiente o processo. 💪</p>
+      <div style="margin-top:12px;"><a href="https://www.instagram.com/reel/DOgG7RTkYOx/" target="_blank" class="ig-link">▶ Execução consistente gera resultado</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FEEDBACK ═══════════════════════════════ -->
+<section id="feedback" class="section">
+  <div class="section-header"><h2>Feedback <span>Semanal</span></h2><div class="section-line"></div></div>
+  <div class="fb-obs">Responda as perguntas abaixo e clique em <strong style="color:var(--gold);">Gerar Resumo</strong> para criar um texto formatado que você pode enviar diretamente no WhatsApp.</div>
+
+  <div class="fb-section">
+    <h3>🥗 Alimentação</h3>
+    <div class="fb-question">
+      <div class="fb-q-label">Está conseguindo seguir o plano alimentar?</div>
+      <div class="fb-scale">
+        <button class="fb-scale-btn" data-group="adesao-dieta" data-val="Ruim" onclick="selectScale(this)"><span>😔</span><span>Ruim</span></button>
+        <button class="fb-scale-btn" data-group="adesao-dieta" data-val="Regular" onclick="selectScale(this)"><span>😐</span><span>Regular</span></button>
+        <button class="fb-scale-btn" data-group="adesao-dieta" data-val="Bem" onclick="selectScale(this)"><span>😊</span><span>Bem</span></button>
+        <button class="fb-scale-btn" data-group="adesao-dieta" data-val="Ótimo" onclick="selectScale(this)"><span>🔥</span><span>Ótimo</span></button>
+      </div>
+    </div>
+    <div class="fb-question">
+      <div class="fb-q-label">Sentiu fome excessiva ao longo do dia?</div>
+      <div class="fb-yesno">
+        <button class="fb-yn-btn" data-group="fome" data-val="Sim" onclick="selectYN(this)">✓ Sim</button>
+        <button class="fb-yn-btn" data-group="fome" data-val="Não" onclick="selectYN(this)">✕ Não</button>
+        <button class="fb-yn-btn" data-group="fome" data-val="Às vezes" onclick="selectYN(this)">~ Às vezes</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fb-section">
+    <h3>🏋️ Treino e Cardio</h3>
+    <div class="fb-question">
+      <div class="fb-q-label">Quantos treinos de musculação fez na semana?</div>
+      <div class="fb-yesno">
+        <button class="fb-yn-btn" data-group="treinos" data-val="0" onclick="selectYN(this)">0</button>
+        <button class="fb-yn-btn" data-group="treinos" data-val="1–2" onclick="selectYN(this)">1–2</button>
+        <button class="fb-yn-btn" data-group="treinos" data-val="3" onclick="selectYN(this)">3</button>
+        <button class="fb-yn-btn" data-group="treinos" data-val="4+" onclick="selectYN(this)">4+</button>
+      </div>
+    </div>
+    <div class="fb-question">
+      <div class="fb-q-label">Atingiu 200 minutos de atividade aeróbica na semana?</div>
+      <div class="fb-yesno">
+        <button class="fb-yn-btn" data-group="cardio-fb" data-val="Sim" onclick="selectYN(this)">✓ Sim</button>
+        <button class="fb-yn-btn" data-group="cardio-fb" data-val="Não" onclick="selectYN(this)">✕ Não</button>
+        <button class="fb-yn-btn" data-group="cardio-fb" data-val="Parcialmente" onclick="selectYN(this)">~ Parcialmente</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fb-section">
+    <h3>😴 Sono e Disposição</h3>
+    <div class="fb-question">
+      <div class="fb-q-label">Como está a qualidade do seu sono?</div>
+      <div class="fb-scale">
+        <button class="fb-scale-btn" data-group="sono" data-val="Ruim" onclick="selectScale(this)"><span>😔</span><span>Ruim</span></button>
+        <button class="fb-scale-btn" data-group="sono" data-val="Regular" onclick="selectScale(this)"><span>😐</span><span>Regular</span></button>
+        <button class="fb-scale-btn" data-group="sono" data-val="Bem" onclick="selectScale(this)"><span>😊</span><span>Bem</span></button>
+        <button class="fb-scale-btn" data-group="sono" data-val="Ótimo" onclick="selectScale(this)"><span>🔥</span><span>Ótimo</span></button>
+      </div>
+    </div>
+    <div class="fb-question">
+      <div class="fb-q-label">Como está sua disposição geral?</div>
+      <div class="fb-scale">
+        <button class="fb-scale-btn" data-group="disposicao" data-val="Baixa" onclick="selectScale(this)"><span>😴</span><span>Baixa</span></button>
+        <button class="fb-scale-btn" data-group="disposicao" data-val="Regular" onclick="selectScale(this)"><span>😐</span><span>Regular</span></button>
+        <button class="fb-scale-btn" data-group="disposicao" data-val="Boa" onclick="selectScale(this)"><span>😊</span><span>Boa</span></button>
+        <button class="fb-scale-btn" data-group="disposicao" data-val="Ótima" onclick="selectScale(this)"><span>⚡</span><span>Ótima</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fb-section">
+    <h3>📝 Observações</h3>
+    <textarea class="fb-text-area" id="fb-obs" placeholder="Alguma dúvida, dificuldade ou observação da semana?"></textarea>
+  </div>
+
+  <button class="btn-generate" onclick="generateFeedback()">Gerar Resumo para WhatsApp</button>
+  <div class="fb-result" id="fbResult"></div>
+  <button class="btn-copy" id="btnCopy" style="display:none;" onclick="copyFeedback()">Copiar e Abrir WhatsApp</button>
+</section>
+
+<!-- ═══════════════════════════════ FINANCEIRO ═══════════════════════════════ -->
+<section id="financeiro" class="section">
+  <div class="section-header"><h2>💳 <span>Financeiro</span></h2><div class="section-line"></div></div>
+  <div id="fin-container">
+    <div style="text-align:center;padding:40px;color:var(--white-dim);font-size:13px;">Carregando dados financeiros...</div>
+  </div>
+</section>
+
+</div><!-- .main -->
+<div class="watermark">Consultoria LB · Luan Barreto</div>
+
+<!-- ═══════════════════════════════ FIREBASE ═══════════════════════════════ -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+const CLIENT_ID = 'eukicia-martins';
+const firebaseConfig = {
+  apiKey: "AIzaSyBeik1WqF-1vdAiKR5Fzxs9M87p9gi3HCI",
+  authDomain: "consultoria-lb.firebaseapp.com",
+  projectId: "consultoria-lb"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const docRef = db.collection('clients').doc(CLIENT_ID);
+
+// ── NAVIGATION ────────────────────────────────────────────────────────
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  const sec = document.getElementById(id);
+  if (sec) sec.classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(id)) b.classList.add('active');
+  });
+  window.scrollTo(0,0);
+}
+
+// ── WEEK COUNTER ──────────────────────────────────────────────────────
+function calcWeek(startDate) {
+  if (!startDate) return '—';
+  const start = new Date(startDate);
+  const today = new Date();
+  const diff = Math.floor((today - start) / (7 * 24 * 60 * 60 * 1000));
+  return 'S' + (diff + 1);
+}
+
+// ── LOAD DATA FROM FIREBASE ───────────────────────────────────────────
+docRef.get().then(doc => {
+  const data = doc.exists ? doc.data() : {};
+  // Week
+  document.getElementById('weekNum').textContent = calcWeek(data.planUpdateDate);
+  // Meal obs
+  ['r1','r2','r3','r4','r5'].forEach(r => {
+    const el = document.getElementById('obs-' + r);
+    if (el && data['obs_' + r]) el.value = data['obs_' + r];
+  });
+  // Financeiro
+  renderFinanceiro(data);
+}).catch(() => {});
+
+// ── SAVE OBS ──────────────────────────────────────────────────────────
+function saveObs(key, val) {
+  docRef.set({ ['obs_' + key]: val }, { merge: true }).catch(() => {});
+}
+
+// ── FINANCEIRO ────────────────────────────────────────────────────────
+function renderFinanceiro(data) {
+  const planUpdateDate = data.planUpdateDate || null;
+  const renewalDate = data.renewalDate || null;
+  const renewalValue = data.renewalValue || null;
+  const today = new Date(); today.setHours(0,0,0,0);
+  let daysLeft = null, progressPct = 0;
+  if (renewalDate) {
+    const rd = new Date(renewalDate); rd.setHours(0,0,0,0);
+    daysLeft = Math.ceil((rd - today) / 86400000);
+  }
+  if (planUpdateDate && renewalDate) {
+    const sd = new Date(planUpdateDate); sd.setHours(0,0,0,0);
+    const rd = new Date(renewalDate); rd.setHours(0,0,0,0);
+    progressPct = Math.max(0, Math.min(100, Math.round((today - sd) / (rd - sd) * 100)));
+  }
+  const color = daysLeft === null ? 'var(--gold)' : daysLeft > 30 ? '#7dd87d' : daysLeft > 14 ? '#f5c842' : '#e05a5a';
+  const emoji = daysLeft === null ? '📅' : daysLeft > 30 ? '🟢' : daysLeft > 14 ? '🟡' : '🔴';
+  const weeksIn = planUpdateDate ? Math.ceil((today - new Date(planUpdateDate)) / 604800000) : '—';
+  document.getElementById('fin-container').innerHTML = `
+    ${daysLeft !== null && daysLeft <= 14 ? '<div style="background:rgba(224,90,90,0.15);border:1px solid rgba(224,90,90,0.4);border-radius:6px;padding:14px 18px;margin-bottom:20px;font-size:12px;color:#e05a5a;">⚠️ Plano vence em breve — entre em contato para renovação.</div>' : ''}
+    <div style="text-align:center;padding:32px 20px;background:var(--dark2);border:1px solid var(--border);border-radius:8px;margin-bottom:20px;">
+      <div style="font-size:72px;font-weight:700;color:${color};line-height:1;">${daysLeft !== null ? daysLeft : '—'}</div>
+      <div style="font-size:12px;color:var(--white-dim);margin-top:6px;letter-spacing:1px;">DIAS RESTANTES ${emoji}</div>
+    </div>
+    <div style="background:var(--dark2);border:1px solid var(--border);border-radius:8px;padding:22px;margin-bottom:16px;">
+      <div style="font-size:11px;color:var(--white-dim);margin-bottom:10px;letter-spacing:1px;">PROGRESSO DO PLANO</div>
+      <div style="height:8px;background:rgba(255,255,255,0.07);border-radius:4px;overflow:hidden;margin-bottom:8px;">
+        <div style="height:100%;width:${progressPct}%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--white-dim);">
+        <span>Início: ${planUpdateDate || '—'}</span><span>Renovação: ${renewalDate || '—'}</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:6px;padding:16px;text-align:center;">
+        <div style="font-size:9px;color:var(--white-dim);letter-spacing:1px;margin-bottom:6px;">SEMANA ATUAL</div>
+        <div style="font-size:22px;color:var(--gold);font-weight:600;">S${weeksIn}</div>
+      </div>
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:6px;padding:16px;text-align:center;">
+        <div style="font-size:9px;color:var(--white-dim);letter-spacing:1px;margin-bottom:6px;">RENOVAÇÃO</div>
+        <div style="font-size:14px;color:var(--white);font-weight:500;">${renewalDate || '—'}</div>
+      </div>
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:6px;padding:16px;text-align:center;">
+        <div style="font-size:9px;color:var(--white-dim);letter-spacing:1px;margin-bottom:6px;">VALOR</div>
+        <div style="font-size:18px;color:var(--gold);font-weight:600;">${renewalValue ? 'R$' + renewalValue : '—'}</div>
+      </div>
+    </div>
+  `;
+}
+
+// ── SUBSTITUIÇÕES ─────────────────────────────────────────────────────
+const SUBS = {
+  'ovo': 'Frango 80g · Atum 80g · Patinho 80g · Whey 25g',
+  'frango': 'Patinho 120g · Tilápia 140g · Atum 120g · Whey 40g',
+  'atum': 'Frango 120g · Patinho 120g · Tilápia 140g',
+  'arroz': 'Batata 130g · Macarrão 80g · Aipim 100g · Cuscuz 80g',
+  'feijão': 'Lentilha 100g · Grão-de-bico 100g · Ervilha 100g',
+  'pão': 'Tapioca 50-70g · Cuscuz 80-100g · Aveia 30-40g · Granola 30-40g',
+  'mamão': 'Banana · Maçã 150g · Melão 200g · Uva 120g · Abacaxi 200g',
+  'fruta': 'Banana · Maçã · Mamão 200g · Melão · Uva',
+  'batata': 'Arroz 70g · Macarrão 80g · Aipim 100g · Cuscuz 80g',
+};
+function searchSub(val) {
+  const r = document.getElementById('subResult');
+  if (!val.trim()) { r.textContent = ''; return; }
+  const key = Object.keys(SUBS).find(k => val.toLowerCase().includes(k));
+  r.innerHTML = key ? `<strong style="color:var(--gold);">${key.charAt(0).toUpperCase()+key.slice(1)}:</strong> ${SUBS[key]}` : 'Nenhuma substituição cadastrada para este alimento.';
+}
+
+// ── FEEDBACK ─────────────────────────────────────────────────────────
+function selectScale(btn) {
+  const g = btn.dataset.group;
+  document.querySelectorAll(`[data-group="${g}"]`).forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+function selectYN(btn) {
+  const g = btn.dataset.group;
+  document.querySelectorAll(`[data-group="${g}"]`).forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+function getVal(group) {
+  const sel = document.querySelector(`[data-group="${group}"].selected`);
+  return sel ? sel.dataset.val : 'Não informado';
+}
+function generateFeedback() {
+  const obs = document.getElementById('fb-obs').value;
+  const text = `📊 *Feedback Semanal — Eukícia Martins*\n\n` +
+    `🥗 *Alimentação*\n• Adesão ao plano: ${getVal('adesao-dieta')}\n• Fome excessiva: ${getVal('fome')}\n\n` +
+    `🏋️ *Treino e Cardio*\n• Treinos na semana: ${getVal('treinos')}\n• 200min aeróbico: ${getVal('cardio-fb')}\n\n` +
+    `😴 *Sono e Disposição*\n• Qualidade do sono: ${getVal('sono')}\n• Disposição geral: ${getVal('disposicao')}\n\n` +
+    (obs ? `📝 *Observações*\n${obs}\n\n` : '') +
+    `_Enviado via Portal LB_`;
+  const el = document.getElementById('fbResult');
+  el.textContent = text;
+  el.style.display = 'block';
+  document.getElementById('btnCopy').style.display = 'block';
+}
+function copyFeedback() {
+  const text = document.getElementById('fbResult').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    window.open(`https://wa.me/5527995084354?text=${encodeURIComponent(text)}`, '_blank');
+  });
+}
+
+// ── PHOTOS ────────────────────────────────────────────────────────────
+function addPhotos(input) {
+  const grid = document.getElementById('photoGrid');
+  Array.from(input.files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const div = document.createElement('div');
+      div.className = 'photo-item';
+      div.innerHTML = `<img src="${e.target.result}" alt="Progresso">`;
+      grid.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+</script>
+</body></html>
